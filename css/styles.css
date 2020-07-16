@@ -1,0 +1,206 @@
+:root {
+    --fuente-principal: 'Poppins', sans-serif;
+    --color-red: #d63447;
+    --color-green: #216353;
+    --color-yellow: #ffac41;
+    --color-blue-sky: #24a19c;
+    --color-pink: #e79cc2;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: var(--fuente-principal);
+    background-color: #e4e3e3;
+}
+
+div.container h1 {
+    margin: 0;
+    font-size: 4rem;
+    padding-top: 2rem;
+    text-transform: uppercase;
+}
+
+div.container {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+@media only screen and (min-width: 992px) {
+    div.container {
+        width: 60%;
+    }
+}
+
+div#message-info {
+    display: none;
+    padding: 2rem 2rem 0 2rem;
+    margin-bottom: 0;
+}
+
+div#message-info.active {
+    display: inline-block;
+}
+
+div#message-info.active {
+    display: inline-block;
+}
+
+div#message-info p {
+    color: #ffffff;
+    padding: 2rem 8rem;
+    border: 2px solid #000000;
+}
+
+div#message-info p.error {
+    background-color: var(--color-red);
+}
+
+div#message-info p.check {
+    background-color: var(--color-green);
+}
+
+div.text-todo {
+    padding-top: 3rem;
+}
+
+div.text-todo textarea {
+    width: 90%;
+    height: 5rem;
+    padding-top: 1.5rem;
+    padding-left: 2rem;
+    resize: none;
+}
+
+div.date-todo {
+    padding-top: 2rem;
+}
+
+div.date-todo .date {
+    width: 90%;
+    height: 5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+div.date-todo .time {
+    width: 90%;
+    height: 5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin-top: 2rem;
+}
+
+div.color-todo {
+    padding-top: 3rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+div.color-todo button {
+    width: 5.5rem;
+    height: 5.5rem;
+    border: 2px solid #000000;
+    border-radius: 50%;
+    transition: border .5s ease;
+}
+
+div.color-todo button:hover {
+    cursor: pointer;
+    border: #ffffff;
+}
+
+.color-red {
+    background-color: var(--color-red);
+}
+
+.color-green {
+    background-color: var(--color-green);
+}
+
+.color-yellow {
+    background-color: var(--color-yellow);
+}
+
+.color-blue {
+    background-color: var(--color-blue-sky);
+}
+
+.color-pink {
+    background-color: var(--color-pink);
+}
+
+div.add-todo {
+    padding-top: 3rem;
+}
+
+div.add-todo input {
+    width: 90%;
+    height: 5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    background-color: #5a3d55;
+    border: none;
+    border-radius: 3px;
+    transition: background-color .5s ease;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+div.add-todo input:hover {
+    background-color: #6a197d;
+    cursor: pointer;
+}
+
+div.list-todo h2 {
+    text-transform: uppercase;
+    padding-top: 2rem;
+    border-top: 1px solid #5d5d5d;
+    font-size: 3rem;
+}
+
+div.todo-list {
+    width: 90%;
+    margin: 2rem auto;
+    height: auto;
+    word-wrap: break-word;
+    border-radius: 1rem;
+}
+
+div.todo-list a {
+    background-color: #222831;
+    display: block;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 3rem;
+    transition: color .5s ease;
+}
+
+div.todo-list a:hover {
+    color: #d92027;
+}
+
+div.todo-list p.text {
+    font-size: 2.5rem;
+    margin: 1rem auto;
+}
+
+div.todo-list p:last-child {
+    display: block;
+    padding-bottom: 1rem;
+    color: #ffffff;
+    text-transform: uppercase;
+}

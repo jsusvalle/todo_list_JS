@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo-List</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/normalize.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Todo List</h1>
+        <div id="message-info"></div>
+        <div class="text-todo">
+            <textarea name="" id="todo-text" placeholder="Type a task"></textarea>
+        </div>
+        <div class="date-todo">
+            <input type="date" name="date" id="todo-date" class="date">
+        </div>
+        <div class="color-todo" id="todo-color">
+            <button class="color-red" value="color-red"></button>
+            <button class="color-green" value="color-green"></button>
+            <button class="color-yellow" value="color-yellow"></button>
+            <button class="color-blue" value="color-blue"></button>
+            <button class="color-pink" value="color-pink"></button>
+        </div>
+        <div class="add-todo">
+            <input id="add-task" type="submit" value="Add todo">
+        </div>
+        <div class="list-todo">
+            <h2>Things to do</h2>
+            <div class="list-todo-list">
+
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>
