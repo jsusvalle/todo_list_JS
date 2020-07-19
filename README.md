@@ -1,4 +1,4 @@
-
+# to-do list in HTML, CSS & vanilla Javascript :computer:.
 
 ### Link :link::
 https://brave-morse-c63301.netlify.app/
