@@ -3,7 +3,7 @@ const btnAddTask = document.getElementById('add-task');
 const btnsColors = document.getElementById('todo-color');
 const listTask = document.querySelector('.list-todo-list');
 let bntColorSelected;
-let idTask = 0;
+let idTask = Math.random();
 let dataTask;
 
 //* Event Listeners
@@ -13,7 +13,7 @@ function eventListeners() {
     btnsColors.addEventListener('click', selectColor);
     btnAddTask.addEventListener('click', addTask);
     listTask.addEventListener('click', deleteTask);
-    //document.addEventListener('DOMContentLoaded', readLocalStorage);
+    document.addEventListener('DOMContentLoaded', readLocalStorage);
 }
 
 //* Funciones
@@ -50,8 +50,13 @@ function createTask(idTask, textTask, dateTask, bntColorSelected) {
     div.innerHTML = templateHTML;
     listTask.appendChild(div);
 
-    readTaskDOM();
-    AddTaskLocalStorage(idTask);
+    let taskCreated = {
+        text: textTask,
+        date: dateTask,
+        btn: bntColorSelected,
+        id: idTask
+    }
+    AddTaskLocalStorage(taskCreated);
 }
 
 //* Delete Task and take ID Task
@@ -66,7 +71,7 @@ function deleteTask(e) {
         task.remove();
         messageInfo('Tarea Eliminada', 'error');
 
-        deleteTaskLocalStorage(idTask);
+        deleteTaskLocalStorage(taskID);
     }
 }
 
@@ -76,28 +81,28 @@ function emptyField() {
     document.querySelector('#todo-date').value = '';
 }
 
-// Read Task of DOM
-function readTaskDOM() {
-    dataTask = {
-        id: listTask.querySelector('a').getAttribute('id'),
-        text: listTask.querySelector('p.text').textContent,
-        date: listTask.querySelector('p.date').textContent
-    }
-
-    console.log(dataTask);
+//* Add Task of Local Storage
+function AddTaskLocalStorage(taskCreated) {
+    let task;
+    task = getTaskLocalStorage();
+    task.push(taskCreated);
+    localStorage.setItem('task', JSON.stringify(task));
 }
 
-//TODO Add Task of Local Storage
-function AddTaskLocalStorage(idTask) {
+//* Delete Task of Local Storage
+function deleteTaskLocalStorage(taskID) {
+    let taskLS;
+    taskLS = getTaskLocalStorage();
 
+    taskLS.forEach(function(idTask, index) {
+        if (idTask.id == taskID) {
+            taskLS.splice(index, 1);
+        }
+    });
+    localStorage.setItem('task', JSON.stringify(taskLS));
 }
 
-//TODO Delete Task of Local Storage
-function deleteTaskLocalStorage(idTask) {
-
-}
-
-//TODO get Task of LocalStorage
+//* get Task of LocalStorage
 function getTaskLocalStorage() {
     let taskLS;
 
@@ -110,30 +115,25 @@ function getTaskLocalStorage() {
     return taskLS;
 }
 
-//TODO Read Local Storage
-/*
+//* Read Local Storage
 function readLocalStorage() {
     let taskLS;
 
     taskLS = getTaskLocalStorage();
 
-    cursosLS.forEach(function(curso) {
-        //Construir el template
-        const row = document.createElement('tr');
-        row.innerHTML = `
-        <td>
-            <img src="${curso.imagen}" width=100>
-        </td>
-        <td>${curso.titulo}</td>
-        <td>${curso.precio}</td>
-        <td>
-            <a href="#" class="borrar-curso" data-id="${curso.id}">X</a>
-        </td>
+    taskLS.forEach(function(task) {
+        let templateHTML = `
+        <a href="#" id=${task.id}>x</a>
+        <p class="text">${task.text}</p>
+        <p class="date">${task.date}</p>
         `;
-        listaCursos.appendChild(row);
+        let div = document.createElement('div');
+        div.classList.add(task.btn, 'todo-list');
+        div.innerHTML = templateHTML;
+        listTask.appendChild(div);
     });
 }
-*/
+
 //* Show Message DOM
 function messageInfo(message, type) {
     const div = document.querySelector('#message-info');
